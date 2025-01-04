@@ -19,7 +19,7 @@ const app = express();
 const server = createServer(app);
 
 const PORT = process.env.PORT || 8000;
-const FRONTEND_URL = process.env.FRONTEND_URL || 'https://snapshare-frontend.vercel.app';
+const FRONTEND_URL = process.env.FRONTEND_URL;
 
 const allowedOrigins = [FRONTEND_URL];
 
