@@ -92,6 +92,7 @@ router.get("/generatePostObjectUrl",
         true,
       );
     } catch (err) {
+      console.log(err);
       next(err);
     }
   },
@@ -156,6 +157,7 @@ router.post("/sharefile", authTokenHandler, async (req, res, next) => {
     await mailer(receiveremail, senderuser.email);
     return responseFunction(res, 200, "shared successfully", null, true);
   } catch (err) {
+    console.log(err);
     next(err);
   }
 });
@@ -173,6 +175,7 @@ router.get("/getfiles", authTokenHandler, async (req, res, next) => {
       true,
     );
   } catch (err) {
+    console.log(err);
     next(err);
   }
 });
@@ -194,6 +197,7 @@ router.get("/gets3urlbykey/:key", authTokenHandler, async (req, res, next) => {
       true,
     );
   } catch (err) {
+    console.log(err);
     next(err);
   }
 });

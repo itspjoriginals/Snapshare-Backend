@@ -196,6 +196,7 @@ router.post("/login", async (req, res, next) => {
       true,
     );
   } catch (err) {
+    console.log(err);
     next(err);
   }
 });
@@ -220,6 +221,7 @@ router.get("/checkLogin", authTokenHandler, async (req, res) => {
     });
 
   } catch (err) {
+    console.log(err);
     return res.status(500).json({ ok: false });
   }
 });
@@ -246,6 +248,7 @@ router.get("/getuser", authTokenHandler, async (req, res, next) => {
 
     return responseFunction(res, 200, "User found", user, true);
   } catch (err) {
+    console.log(err);
     next(err);
   }
 });
@@ -285,6 +288,7 @@ router.post("/changePassword", async (req, res, next) => {
       true,
     );
   } catch (err) {
+    console.log(err);
     next(err);
   }
 });
@@ -329,6 +333,7 @@ router.get("/generatePostObjectUrl", async (req, res, next) => {
       true,
     );
   } catch (err) {
+    console.log(err);
     next(err);
   }
 });
