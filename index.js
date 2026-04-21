@@ -32,13 +32,7 @@ app.use(
 );
 
 app.use(bodyParser.json());
-app.use(cookieParser({
-    httpOnly: true,
-    secure: true,
-    sameSite: 'none',
-    maxAge: 1000 * 60 * 60 * 24 * 7,
-    signed: true,
-}));
+app.use(cookieParser());
 app.use('/public', express.static('public'));      
 app.use('/auth', authRoutes);
 app.use('/file', fileShareRoutes);
