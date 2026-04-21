@@ -72,7 +72,32 @@ const postObjectURL = async (filename, contentType) => {
 
 router.get("/test", async (req, res) => {
   let imgurl = await getObjectURL("myfile803");
-  res.send('<img src="' + imgurl + '"/>');
+  res.send(`
+  <html>
+    <head>
+      <title>Preview</title>
+      <style>
+        body {
+          margin: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          background: #0f172a;
+        }
+        img {
+          max-width: 90%;
+          max-height: 90%;
+          border-radius: 10px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+      </style>
+    </head>
+    <body>
+      <img src="${imgurl}" alt="preview"/>
+    </body>
+  </html>
+`);
 });
 
 router.get("/generatePostObjectUrl",
